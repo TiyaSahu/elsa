@@ -83,9 +83,9 @@ function setup() {
   if(obstacleGroup.isTouching(elsa)){
     gameState = END;
     elsa.velocityY = 0;
-   // gameover=createSprite(300,200,20,20);
-   // gameover.addImage(gameoverImage);
-   // gameover.scale=1;
+    gameover=createSprite(300,200,20,20);
+    gameover.addImage(gameoverImage);
+    gameover.scale=1;
   }
   
   if(flameGroup.isTouching(elsa)){
@@ -97,6 +97,9 @@ function setup() {
   if(snowGroup.isTouching(flameGroup)){
     snowGroup.destroyEach();
     flameGroup.destroyEach();
+    gameover=createSprite(300,200,20,20);
+    gameover.addImage(gameoverImage);
+    gameover.scale=1;
   }
     
      drawSprites();
@@ -106,12 +109,6 @@ function setup() {
     text("Score:"+  score, 500, 50);
 
     } 
-    
-    if(gameState===END){
-      gameover=createSprite(300,200,20,20);
-      gameover.addImage(gameoverImage);
-      gameover.scale=1;
-    }
   }   
   
 function points(){
